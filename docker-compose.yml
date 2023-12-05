@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  search-filter-service:
+    build:
+      context: .
+      dockerfile: ./search_filter_service.dockerfile
+    environment:
+      DSN: "host=postgres-db port=5432 user=admin password=password dbname=BookLandDB sslmode=disable timezone=UTC connect_timeout=5"
+    ports:
+      - "7000:7000"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    external: true
