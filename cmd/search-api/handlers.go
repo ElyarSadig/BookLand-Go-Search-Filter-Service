@@ -14,11 +14,6 @@ func (app *Config) SearchBooksByNameHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	if len(books) == 0 {
-		app.writeJSON(w, http.StatusNotFound, "")
-		return
-	}
-
 	app.writeJSON(w, http.StatusOK, books)
 }
 
@@ -32,11 +27,6 @@ func (app *Config) SearchBooksByAuthorHandler(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	if len(books) == 0 {
-		app.writeJSON(w, http.StatusNotFound, "")
-		return
-	}
-
 	app.writeJSON(w, http.StatusOK, books)
 }
 
@@ -47,11 +37,6 @@ func (app *Config) SearchBooksByCategoryHandler(w http.ResponseWriter, r *http.R
 
 	if err != nil {
 		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
-		return
-	}
-
-	if len(books) == 0 {
-		app.writeJSON(w, http.StatusNotFound, "")
 		return
 	}
 
