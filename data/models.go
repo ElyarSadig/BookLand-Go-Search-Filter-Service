@@ -46,7 +46,6 @@ func (b *Book) GetBooksByName(db *sql.DB, bookName string) ([]Book, error) {
             b.ReleasedDate,
             b.BookCoverImage,
             b.Price,
-            b.Description,
             b.NumberOfPages,
             l.Name AS Language
         FROM
@@ -105,7 +104,6 @@ func (b *Book) GetBooksByAuthor(db *sql.DB, authorName string) ([]Book, error) {
             b.ReleasedDate,
             b.BookCoverImage,
             b.Price,
-            b.Description,
             b.NumberOfPages,
             l.Name AS Language
         FROM
@@ -164,7 +162,6 @@ func (b *Book) GetBooksByCategory(db *sql.DB, category string) ([]Book, error) {
 			b.releaseddate,
 			b.bookcoverimage,
 			b.price,
-			b.description,
 			b.numberofpages,
 			l.name AS language
 		FROM Books b
