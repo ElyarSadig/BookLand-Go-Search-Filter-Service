@@ -30,7 +30,6 @@ type Book struct {
 	ReleasedDate   int     `json:"releaseddate"`
 	BookCoverImage string  `json:"bookcoverimage"`
 	Price          float64 `json:"price"`
-	Description    *string `json:"description"`
 	NumberOfPages  int     `json:"numberofpages"`
 	Language       string  `json:"language"`
 }
