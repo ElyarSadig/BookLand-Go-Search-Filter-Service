@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/rs/cors"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 func (app *Config) routes() http.Handler {
@@ -25,6 +25,14 @@ func (app *Config) routes() http.Handler {
 	router.HandleFunc("/api/search/books", app.SearchBooksByNameHandler).Methods("GET").Queries("bookName", "{bookName}")
 	router.HandleFunc("/api/search/books", app.SearchBooksByAuthorHandler).Methods("GET").Queries("author", "{author}")
 	router.HandleFunc("/api/search/books", app.SearchBooksByCategoryHandler).Methods("GET").Queries("category", "{category}")
+
+	router.HandleFunc("/api/search/books/best-sellers", app.SearchBestSellerBooksHandler).Methods("GET")
+	router.HandleFunc("/api/search/books/language-original", app.SearchOriginalLanguageBooksHandler).Methods("GET")
+	router.HandleFunc("/api/search/books/popular", app.SearchPopularBooksHandler).Methods("GET")
+	router.HandleFunc("/api/search/books/economical", app.SearchEconomicalBooksHandler).Methods("GET")
+	router.HandleFunc("/api/search/books/free", app.SearchFreeBooksHandler).Methods("GET")
+	router.HandleFunc("/api/search/books/recently-added", app.SearchRecentlyAddedBooks).Methods("GET")
+
 
 	return router
 }

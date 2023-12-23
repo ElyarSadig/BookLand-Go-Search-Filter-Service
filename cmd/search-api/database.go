@@ -11,6 +11,7 @@ var counts int64
 
 func connectToDB() *sql.DB {
 	dsn := os.Getenv("DSN")
+	// dsn := "host=localhost port=5432 user=admin password=password dbname=BookLandDB sslmode=disable timezone=UTC connect_timeout=5"
 
 	for {
 		connection, err := openDB(dsn)
