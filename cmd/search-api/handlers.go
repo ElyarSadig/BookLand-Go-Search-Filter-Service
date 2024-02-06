@@ -10,7 +10,7 @@ func (app *Config) SearchBooksByNameHandler(w http.ResponseWriter, r *http.Reque
 	books, err := app.Models.Book.GetBooksByName(app.DB, bookName)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -23,7 +23,7 @@ func (app *Config) SearchBooksByAuthorHandler(w http.ResponseWriter, r *http.Req
 	books, err := app.Models.Book.GetBooksByAuthor(app.DB, authorName)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -36,7 +36,7 @@ func (app *Config) SearchBooksByCategoryHandler(w http.ResponseWriter, r *http.R
 	books, err := app.Models.Book.GetBooksByCategory(app.DB, categoryName)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -47,7 +47,7 @@ func (app *Config) SearchBestSellerBooksHandler(w http.ResponseWriter, r *http.R
 	books, err := app.Models.Book.GetBestSellerBooks(app.DB)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -58,7 +58,7 @@ func (app *Config) SearchOriginalLanguageBooksHandler(w http.ResponseWriter, r *
 	books, err := app.Models.Book.GetOriginalLanguageBooks(app.DB)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -69,7 +69,7 @@ func (app *Config) SearchPopularBooksHandler(w http.ResponseWriter, r *http.Requ
 	books, err := app.Models.Book.GetPopularBooks(app.DB)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -80,7 +80,7 @@ func (app *Config) SearchEconomicalBooksHandler(w http.ResponseWriter, r *http.R
 	books, err := app.Models.Book.GetEconomicalBooks(app.DB)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -91,7 +91,7 @@ func (app *Config) SearchFreeBooksHandler(w http.ResponseWriter, r *http.Request
 	books, err := app.Models.Book.GetFreeBooks(app.DB)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 
@@ -102,7 +102,7 @@ func (app *Config) SearchRecentlyAddedBooks(w http.ResponseWriter, r *http.Reque
 	books, err := app.Models.Book.GetRecentlyAddedBooks(app.DB)
 
 	if err != nil {
-		app.errorJSON(w, err, "خطایی در سرور رخ داده است", "InternalServerError")
+		app.errorJSON(w, err, InternalServerErrorMessage, InternalServerErrorCode)
 		return
 	}
 

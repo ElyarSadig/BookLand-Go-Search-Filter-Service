@@ -11,7 +11,7 @@ func (app *Config) routes() http.Handler {
 	router := mux.NewRouter()
 
 	corsHandler := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000", "https://localhost:3000", "http://*"},
+		AllowedOrigins:   []string{"http://localhost:3000", "https://localhost:3000", "*"},
 		AllowedMethods:   []string{"GET", "OPTIONS", "HEAD"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
 		ExposedHeaders:   []string{"Link"},
@@ -19,7 +19,7 @@ func (app *Config) routes() http.Handler {
 		MaxAge:           300,
 	})
 
-	// Apply CORS middleware to the router
+
 	router.Use(corsHandler.Handler)
 
 	router.HandleFunc("/api/search/books", app.SearchBooksByNameHandler).Methods("GET").Queries("bookName", "{bookName}")
